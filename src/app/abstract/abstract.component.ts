@@ -1,11 +1,4 @@
-import {
-  Component,
-  forwardRef,
-  inject,
-  Injectable,
-  InjectionToken,
-  Type,
-} from '@angular/core';
+import { Component, Type } from '@angular/core';
 
 export function getViewProviders(cls: Type<any>) {
   return [
@@ -16,22 +9,15 @@ export function getViewProviders(cls: Type<any>) {
   ];
 }
 
-export const MyToken = new InjectionToken<AbstractComponent>('MyToken');
-// export const viewProviders = [
-//   {
-//     provide: MyToken,
-//     useExisting: forwardRef(() => AbstractComponent),
-//   },
-// ];
-
-@Injectable()
 @Component({
   template: '',
 })
 export abstract class AbstractComponent {
-  text = 'this is abstract';
+  protected text: string;
 
-  public abstract getText(): string;
+  public getText() {
+    return this.text;
+  }
 
   constructor() {
     console.log('hello abstract constructor');

@@ -1,5 +1,5 @@
 import { Component, Host, Inject, SkipSelf } from '@angular/core';
-import { AbstractComponent, MyToken } from '../abstract/abstract.component';
+import { AbstractComponent } from '../abstract/abstract.component';
 
 @Component({
   selector: 'app-child',

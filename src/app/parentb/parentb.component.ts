@@ -10,7 +10,5 @@ import {
   viewProviders: getViewProviders(ParentBComponent),
 })
 export class ParentBComponent extends AbstractComponent {
-  getText() {
-    return 'this is parent b';
-  }
+  protected text = 'this is parent b';
 }
