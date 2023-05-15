@@ -3,7 +3,7 @@ import { AbstractComponent, MyToken } from '../abstract/abstract.component';
 
 @Component({
   selector: 'app-child',
-  template: `<div> {{ parent?.getText() ?? 'not text' }} my Child</div>`,
+  template: `<div> ChildComponent {{ parent?.getText() }} </div>`,
 })
 export class ChildComponent {
   constructor(@Host() public parent: AbstractComponent) {}
