@@ -1,10 +1,23 @@
-import { Component, Host, Inject, SkipSelf } from '@angular/core';
-import { AbstractComponent } from '../abstract/abstract.component';
+import { Component, Host, Inject, Injector, SkipSelf } from '@angular/core';
+import {
+  AbstractComponent,
+  PARENT_ELEMENT,
+} from '../abstract/abstract.component';
 
 @Component({
   selector: 'app-child',
-  template: `<div> ChildComponent {{ parent?.getText() }} </div>`,
+  template: `<div> ChildComponent {{parent}} </div>`,
 })
+
 export class ChildComponent {
-  constructor(@Host() public parent: AbstractComponent) {}
+  
+  @Inject(PARENT_ELEMENT) parent: any;
+
+  constructor() {
+    // @Host() public parent: AbstractComponent,
+    // private injector: Injector
+    debugger;
+
+    // const test = this.injector.get(AbstractComponent);
+  }
 }
