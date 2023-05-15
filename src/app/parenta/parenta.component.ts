@@ -1,6 +1,7 @@
 import { Component, forwardRef } from '@angular/core';
 import {
   AbstractComponent,
+  getViewProviders,
   // MyToken,
   // viewProviders,
 } from '../abstract/abstract.component';
@@ -8,11 +9,10 @@ import {
 @Component({
   selector: 'app-parenta',
   template: `child - <app-child></app-child>`,
+  viewProviders: getViewProviders(ParentAComponent),
 })
 export class ParentAComponent extends AbstractComponent {
-  text = 'this is parent aa';
-
-  constructor() {
-    super();
+  getText() {
+    return 'this is parent aa';
   }
 }

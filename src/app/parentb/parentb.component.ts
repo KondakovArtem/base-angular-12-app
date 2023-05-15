@@ -6,7 +6,9 @@ import { AbstractComponent } from '../abstract/abstract.component';
   template: `<app-child></app-child>`,
 })
 export class ParentBComponent extends AbstractComponent {
-  text = 'this is parent b';
+  getText() {
+    return 'this is parent b';
+  }
 
   constructor() {
     super();

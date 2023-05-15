@@ -4,7 +4,17 @@ import {
   inject,
   Injectable,
   InjectionToken,
+  Type,
 } from '@angular/core';
+
+export function getViewProviders(cls: Type<any>) {
+  return [
+    {
+      provide: AbstractComponent,
+      useExisting: cls,
+    },
+  ];
+}
 
 export const MyToken = new InjectionToken<AbstractComponent>('MyToken');
 // export const viewProviders = [
@@ -17,15 +27,11 @@ export const MyToken = new InjectionToken<AbstractComponent>('MyToken');
 @Injectable()
 @Component({
   template: '',
-  providers: [
-    {
-      provide: AbstractComponent,
-      useExisting: AbstractComponent,
-    },
-  ],
 })
-export class AbstractComponent {
+export abstract class AbstractComponent {
   text = 'this is abstract';
+
+  public abstract getText(): string;
 
   constructor() {
     console.log('hello abstract constructor');
